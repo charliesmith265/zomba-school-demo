@@ -326,12 +326,65 @@ export default function App() {
         </div>
       </section>
 
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 Zomba Baptist Private Schools Demo. Designed by BlueBite Tech Innovations.</p>
-          <p>Professional school website concept</p>
+      <footer className="bg-slate-950 text-slate-300">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-3">
+          <div>
+            <div className="flex items-center gap-3">
+              <img
+                src={logo}
+                alt="Zomba Baptist Private Schools logo"
+                className="h-12 w-12 rounded-xl object-cover shadow"
+              />
+              <div>
+                <h4 className="text-lg font-bold text-white">Zomba Baptist Private Schools</h4>
+                <p className="text-sm text-slate-400">Quality education for a brighter future</p>
+              </div>
+            </div>
+            <p className="mt-4 text-sm leading-7 text-slate-400">
+              A professional school website concept designed to present the school clearly,
+              build trust with parents, and support admissions.
+            </p>
+          </div>
+
+          <div>
+            <h5 className="text-base font-semibold text-white">Quick Links</h5>
+            <div className="mt-4 flex flex-col gap-3 text-sm">
+              <a href="#home" className="hover:text-white">Home</a>
+              <a href="#about" className="hover:text-white">About</a>
+              <a href="#programs" className="hover:text-white">Programs</a>
+              <a href="#gallery" className="hover:text-white">Gallery</a>
+              <a href="#admissions" className="hover:text-white">Admissions</a>
+              <a href="#contact" className="hover:text-white">Contact</a>
+            </div>
+          </div>
+
+          <div>
+            <h5 className="text-base font-semibold text-white">Contact Details</h5>
+            <div className="mt-4 space-y-3 text-sm text-slate-400">
+              <p>Zomba City, behind Standard Bank Branch, Malawi</p>
+              <p>zombabaptistpvt@gmail.com</p>
+              <p>+265 999 800 178 / +265 888 510 998</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-800">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+            <p>© 2026 Zomba Baptist Private Schools Demo.</p>
+            <p>Designed by BlueBite Tech Innovations</p>
+          </div>
         </div>
       </footer>
+
+      <a
+        href="https://wa.me/265999800178"
+        target="_blank"
+        rel="noreferrer"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-full bg-green-500 px-5 py-3 text-sm font-semibold text-white shadow-2xl transition hover:scale-105 hover:bg-green-600"
+      >
+        <span className="text-lg">💬</span>
+        WhatsApp Us
+      </a>
     </div>
   );
 }
