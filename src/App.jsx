@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import logo from './assets/logo.png'
 import heroImage from './assets/hero.jpg'
 import gallery1 from './assets/gallery1.jpg'
@@ -6,6 +7,8 @@ import gallery3 from './assets/gallery3.jpg'
 import gallery4 from './assets/gallery4.jpg'
 
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   const features = [
     'Christian-centered learning environment',
     'Qualified and caring teachers',
@@ -36,6 +39,8 @@ export default function App() {
 
   const gallery = [gallery1, gallery2, gallery3, gallery4];
 
+  const closeMenu = () => setMenuOpen(false)
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -65,13 +70,36 @@ export default function App() {
             <a href="#contact" className="hover:text-blue-700">Contact</a>
           </nav>
 
-          <a
-            href="#contact"
-            className="rounded-xl bg-blue-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800"
-          >
-            Contact Us
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="#contact"
+              className="hidden rounded-xl bg-blue-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800 md:inline-flex"
+            >
+              Contact Us
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="inline-flex rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 md:hidden"
+            >
+              {menuOpen ? 'Close' : 'Menu'}
+            </button>
+          </div>
         </div>
+
+        {menuOpen && (
+          <div className="border-t border-slate-200 bg-white md:hidden">
+            <div className="mx-auto flex max-w-7xl flex-col px-6 py-4 text-sm font-medium text-slate-700">
+              <a href="#home" onClick={closeMenu} className="py-2 hover:text-blue-700">Home</a>
+              <a href="#about" onClick={closeMenu} className="py-2 hover:text-blue-700">About</a>
+              <a href="#programs" onClick={closeMenu} className="py-2 hover:text-blue-700">Programs</a>
+              <a href="#gallery" onClick={closeMenu} className="py-2 hover:text-blue-700">Gallery</a>
+              <a href="#admissions" onClick={closeMenu} className="py-2 hover:text-blue-700">Admissions</a>
+              <a href="#contact" onClick={closeMenu} className="py-2 hover:text-blue-700">Contact</a>
+            </div>
+          </div>
+        )}
       </header>
 
       <section id="home" className="relative overflow-hidden text-white">
